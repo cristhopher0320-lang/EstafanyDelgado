@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Felicidades Estefany Delgado! 🌻</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sunflower: {
+                            50: '#fffbe1',
+                            100: '#fff3b8',
+                            200: '#ffe66e',
+                            300: '#ffd32b',
+                            400: '#f5be0b',
+                            500: '#d99a06',
+                            600: '#b77503',
+                            700: '#925207',
+                            800: '#78410d',
+                        },
+                        leaf: {
+                            600: '#166534',
+                            700: '#15803d',
+                            800: '#166534',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar & glassmorphism details */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 50%, #fef9c3 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient floating canvas */
+        #petal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.15),
+                        0 0 20px rgba(251, 191, 36, 0.1);
+        }
+
+        /* Subtle floating animation */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .animate-float {
+            animation: gentleFloat 5s ease-in-out infinite;
+        }
+
+        /* Glow animation for icon */
+        @keyframes sunflowerGlow {
+            0%, 100% { filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.5)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 22px rgba(245, 158, 11, 0.8)); transform: scale(1.05); }
+        }
+
+        .glow-sunflower {
+            animation: sunflowerGlow 3.5s ease-in-out infinite;
+        }
+
+        /* Smooth reveal animations */
+        .fade-in-up {
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-10 relative">
+
+    <!-- Interactive Canvas Background for floating petals & particles -->
+    <canvas id="petal-canvas"></canvas>
+
+    <!-- Main Content Container -->
+    <main class="relative z-20 w-full max-w-2xl mx-auto text-center fade-in-up">
+        
+        <!-- Glowing Sunflower Header Icon -->
+        <div class="mb-6 inline-block relative">
+            <div class="glow-sunflower text-6xl sm:text-7xl select-none cursor-pointer transform transition-transform hover:scale-110 active:scale-95" id="sunflower-badge" title="¡Haz clic para ver la magia!">
+                🌻
+            </div>
+            <!-- Decorative leaf sparkles -->
+            <span class="absolute -bottom-1 -right-2 text-2xl animate-bounce">✨</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-amber-950 leading-tight mb-3 tracking-tight">
+            ¡Felicidades, <br class="sm:hidden">
+            <span class="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 bg-clip-text text-transparent">
+                Estefany Delgado!
+            </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-amber-800/90 text-base sm:text-lg font-medium mb-8 max-w-lg mx-auto flex items-center justify-center gap-2">
+            <span>Un nuevo comienzo, una gran meta cumplida</span>
+            <span class="inline-block transform hover:rotate-12 transition-transform">✨</span>
+        </p>
+
+        <!-- Main Poem Glassmorphism Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-10 md:p-12 mb-8 relative overflow-hidden animate-float">
+            <!-- Decorative corner elements -->
+            <div class="absolute -top-6 -left-6 w-20 h-20 bg-amber-200/40 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-yellow-300/30 rounded-full blur-xl pointer-events-none"></div>
+
+            <!-- Decorative Quote Icon Top -->
+            <div class="text-amber-400/40 text-4xl sm:text-5xl font-serif leading-none mb-2 select-none">“</div>
+
+            <!-- 5-Line Poem Content -->
+            <div class="font-serif text-lg sm:text-2xl md:text-2xl text-amber-950 font-semibold leading-relaxed sm:leading-loose space-y-2 sm:space-y-3 italic">
+                <p class="transition-colors hover:text-amber-700">Hoy la constancia da frutos y florece tu ilusión,</p>
+                <p class="transition-colors hover:text-amber-700">abres las puertas del sueño que nació en tu corazón.</p>
+                <p class="transition-colors hover:text-amber-700">Que cada cliente que entre descubra tu gran talento,</p>
+                <p class="transition-colors hover:text-amber-700">y la abundancia te abrace en este hermoso momento.</p>
+                <p class="text-amber-700 font-bold not-italic pt-3 text-xl sm:text-2xl border-t border-amber-200/60 mt-4">
+                    ¡Felicidades por tu nueva tienda, Estefany Delgado! 🛍️✨
+                </p>
+            </div>
+
+            <!-- Decorative Quote Icon Bottom -->
+            <div class="text-amber-400/40 text-4xl sm:text-5xl font-serif leading-none mt-2 text-right select-none">”</div>
+        </div>
+
+        <!-- Interactive Celebration Button -->
+        <div class="space-y-4">
+            <button id="bloom-btn" class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-600 text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transform hover:-translate-y-1 active:translate-y-0 transition-all duration-300 cursor-pointer">
+                <span class="text-xl group-hover:rotate-45 transition-transform duration-300">🌻</span>
+                <span>¡Hacer Florecer y Celebrar!</span>
+                <span class="text-xl group-hover:scale-125 transition-transform duration-300">✨</span>
+            </button>
+
+            <p class="text-xs sm:text-sm text-amber-800/60 font-medium">
+                Haz clic en el botón para enviar bendiciones y ver volar los girasoles 💛
+            </p>
+        </div>
+
+        <!-- Footer Footer Badge -->
+        <footer class="mt-12 text-xs sm:text-sm text-amber-900/60 font-light flex items-center justify-center gap-1.5">
+            <span>Con mucho cariño para el éxito de tu tienda</span>
+            <span class="text-emerald-700">🌿</span>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Logic: Canvas Petals, Fireworks, Web Audio Chime -->
+    <script>
+        // Setup Canvas for ambient floating petals & particles
+        const canvas = document.getElementById('petal-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Particle System
+        const particles = [];
+        const burstParticles = [];
+
+        // Colors for warm sunflower atmosphere
+        const colors = ['#f5be0b', '#ffd32b', '#ffe66e', '#d99a06', '#166534', '#ffffff'];
+
+        class Petal {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = -20;
+                this.size = Math.random() * 8 + 6;
+                this.speedY = Math.random() * 1.2 + 0.8;
+                this.speedX = Math.sin(Math.random() * Math.PI) * 0.8;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.02;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.opacity = Math.random() * 0.6 + 0.3;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * 0.01) + this.speedX;
+                this.rotation += this.rotSpeed;
+
+                if (this.y > height + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+
+                // Draw a soft ellipse (petal shape)
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.size, this.size / 2.2, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // Initialize 30 ambient background petals
+        for (let i = 0; i < 30; i++) {
+            const p = new Petal();
+            p.y = Math.random() * height; // scatter initial positions
+            particles.push(p);
+        }
+
+        // Burst Sunflower / Emoji Effect
+        class BurstParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 8 + 3;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed - 2; // slight upward lift
+                this.gravity = 0.15;
+                this.friction = 0.98;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.01;
+                this.size = Math.random() * 18 + 14;
+                this.isEmoji = Math.random() > 0.3;
+                this.emoji = Math.random() > 0.5 ? '🌻' : '✨';
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.vx *= this.friction;
+                this.vy *= this.friction;
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                if (this.alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                if (this.isEmoji) {
+                    ctx.font = `${this.size}px serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(this.emoji, this.x, this.y);
+                } else {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size / 3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        // Sound generator using Web Audio API for a magical chime
+        function playChimeSound() {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const audioCtx = new AudioCtx();
+
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 (Bright C Major Chord)
+                notes.forEach((freq, index) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + index * 0.08);
+
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime + index * 0.08);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + index * 0.08 + 0.8);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(audioCtx.currentTime + index * 0.08);
+                    osc.stop(audioCtx.currentTime + index * 0.08 + 0.85);
+                });
+            } catch (e) {
+                // Ignore audio errors if blocked by browser policy
+            }
+        }
+
+        // Trigger Explosion Function
+        function createExplosion(x, y) {
+            playChimeSound();
+            for (let i = 0; i < 45; i++) {
+                burstParticles.push(new BurstParticle(x, y));
+            }
+        }
+
+        // Button Event Handler
+        const bloomBtn = document.getElementById('bloom-btn');
+        bloomBtn.addEventListener('click', (e) => {
+            const rect = bloomBtn.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            createExplosion(x, y);
+
+            // Button bounce effect
+            bloomBtn.classList.add('scale-95');
+            setTimeout(() => bloomBtn.classList.remove('scale-95'), 150);
+        });
+
+        // Badge Event Handler
+        const badge = document.getElementById('sunflower-badge');
+        badge.addEventListener('click', (e) => {
+            const rect = badge.getBoundingClientRect();
+            createExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        });
+
+        // Animation Loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Render ambient petals
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Render burst particles
+            for (let i = burstParticles.length - 1; i >= 0; i--) {
+                const bp = burstParticles[i];
+                bp.update();
+                bp.draw();
+                if (bp.alpha <= 0) {
+                    burstParticles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation once window loads
+        window.onload = function() {
+            animate();
+        };
+    </script>
+</body>
+</html>
